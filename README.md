@@ -172,3 +172,83 @@ To switch back to root user(admin) on AWS linux:
 
 - To remove sticky bit:  
   `chmod -t fileName`
+
+
+- **Folder and navigation:**
+
+  - To check folder in tree structure:  
+    `tree`
+
+  - To go to the root folder will take you to the root:  
+    `cd /`
+
+  - To go the folder called tmp:  
+    `cd /tmp`
+
+  - To go to the home folder:  
+    `cd ~`
+
+  - To check files and folders:  
+    `ls`
+
+  - To show the long list:  
+    `ls -ll`
+
+  - To show all the files:  
+    `ls -al`
+
+  - To display information about the directory itself:  
+    `ls -ld`
+
+  - To create a folder or directory:  
+    `mkdir myFolder`  
+    Ex: `mkdir AnasFolder`
+
+  - To drop or delete an empty folder:  
+    `rmdir foldername`  
+    Ex: `rmdir AnasFolder`
+
+  - To drop folder forcefully:  
+    `rm -rf docker_practice_folder`
+
+  - To make nested folders:  
+    `mkdir -p firstFolder/secondFolder/thirdFolder`  
+    *(Note: `-p` creates parent directories as needed. If the folder already exists, give the folder name as parent, e.g., `mkdir existingFolder/secondFolder`.)*
+
+  - To drop file or folder with content:  
+    `rm -r foldername`  
+    `rm -r helloWorld`  
+    *(This will ask permission to delete the file or folder.)*  
+    `rm -rf helloWorld`  
+    *(The `-rf` flag allows you to forcefully delete the folder with content inside without asking any questions.)*
+
+  - To delete everything from a directory:  
+    `rm -rf *`
+
+  - To delete every file that has the letter F in them:  
+    `rm -rf *F*`
+
+  - To rename a folder’s name:  
+    `mv oldname newgivenName`
+
+  - To go to folder called Anas:  
+    `cd /home/Anas`
+
+  - To check the present working directory:  
+    `pwd`
+
+  - To go back to previous folder:  
+    `cd ..`  
+    Ex: `cd ..`
+
+  - To go back 6 steps back:  
+    `cd ../../../../../../`
+
+  - To move to the next folder:  
+    `cd */`  
+    *(Note: This only works when the next folder has only one folder.)*
+
+  - To check the current folder size:  
+    `df -h`
+
+  
