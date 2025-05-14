@@ -24,40 +24,61 @@ To switch back to root user(admin) on AWS linux:
 
 ## User and information: 
 
-<ul>
-  <li><strong>To check the current user</strong>: <span style="color:green">whoami</span></li>
-  <li><strong>To create user</strong>: <span style="color:green">useradd Anas</span> or <span style="color:green">adduser Anas</span></li>
-  <li><strong>To give the user (Anas) the password (as root user)</strong>: <span style="color:green">passwd Anas</span></li>
-  <li><strong>To rename user name:</strong> <span style="color:green">usermod -l mYnewUser oldAnasUser</span> 
-    <br> <em>(warning: do with caution and also if has running process it won't execute so we need to kill the process <span style="color:green">pkill -u oldAnasUser</span>)</em>
-  </li>
-  <li><strong>To check user id & group</strong>: <span style="color:green">id Anas</span></li>
-  <li><strong>To substitute user or become different user (operate as diff user):</strong> <span style="color:green">su newUser</span>
-    <br> <em>Ex. <span style="color:green">su Anas</span></em>
-  </li>
-  <li><strong>To check all users or user list:</strong> 
-    <br> <span style="color:green">cat /etc/passwd</span>
-    <br> <span style="color:green">getent passwd | cut -d: -f1</span> 
-    <br> <em>(it will only show the users)</em>
-  </li>
-  <li><strong>Check specific user:</strong> <span style="color:green">getent passwd Anas</span>
-    <br> <em>(give the user name here)</em>
-  </li>
-  <li><strong>To delete a user:</strong> <span style="color:green">userdel Anas</span></li>
-  <li><strong>To lockout a user:</strong>
-    <br> <span style="color:green">usermod -L Anas</span> <em>(it makes the password invalid)</em>
-    <br> <span style="color:green">passwd -l Anas</span> <em>(It locks the account by specifically altering the password field)</em>
-  </li>
-  <li><strong>To unlock a user:</strong> <span style="color:green">usermod -U Anas</span></li>
-  <li><strong>Force the user to change the password:</strong> <span style="color:green">chage -d 0 Anas</span></li>
-  <li><strong>To setup the expiration of user account:</strong>
-    <br> <span style="color:green">chage -E 2025-01-01 Anas</span>
-    <br> <span style="color:green">usermod -e 2024-12-31 Anas</span>
-  </li>
-  <li><strong>To remove user expiration:</strong> <span style="color:green">chage -E -1 Anas</span></li>
-  <li><strong>To check when is the expiration for a user:</strong> <span style="color:green">chage -l Anas</span></li>
-  <li><strong>To check who(user) is currently log in:</strong> <span style="color:green">who</span></li>
-</ul>
+- To check the current user  
+  `whoami`
 
+- To create user  
+  `useradd Anas` or `adduser Anas`
+
+- To give the user (Anas) the password (as root user)  
+  `passwd Anas`
+
+- To rename user name:  
+  `usermod -l mYnewUser oldAnasUser`  
+  *(warning: do with caution and also if has running process it won't execute so we need to kill the process `pkill -u oldAnasUser`)*
+
+- To check user id & group  
+  `id Anas`
+
+- To substitute user or become different user (operate as diff user):  
+  `su newUser`  
+  Example: `su Anas`
+
+- To check all users or user list:  
+  `cat /etc/passwd`  
+  `getent passwd | cut -d: -f1`  
+  *(it will only show the users)*
+
+- Check specific user:  
+  `getent passwd Anas`  
+  *(give the user name here)*
+
+- To delete a user:  
+  `userdel Anas`
+
+- To lockout a user:  
+  `usermod -L Anas`  
+  *(it makes the password invalid)*  
+  `passwd -l Anas`  
+  *(It locks the account by specifically altering the password field)*
+
+- To unlock a user:  
+  `usermod -U Anas`
+
+- Force the user to change the password:  
+  `chage -d 0 Anas`
+
+- To setup the expiration of user account:  
+  `chage -E 2025-01-01 Anas`  
+  `usermod -e 2024-12-31 Anas`
+
+- To remove user expiration:  
+  `chage -E -1 Anas`
+
+- To check when is the expiration for a user:  
+  `chage -l Anas`
+
+- To check who(user) is currently log in:  
+  `who`
 
 
