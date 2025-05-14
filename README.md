@@ -134,8 +134,7 @@ To switch back to root user(admin) on AWS linux:
   Step 2: By default, the group should have read permission, so now to add write and execute:  
   `chmod g+wx DevOpsFile` *(add the file name at the end)*  
   *(Note: It has given the group full privilege)*
-
- Step 3: Login a user that is part of DevOpsTeam to see if it got the permission.
+  Step 3: Login a user that is part of DevOpsTeam to see if it got the permission.
 
 - Allow only read and write permission for group for DevOpsFile:  
   `chmod g=rw DevOpsFile`
