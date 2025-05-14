@@ -10,7 +10,7 @@ Welcome to your first steps into the Linux world! This repository includes:
 
 > Start here if you're completely new to Linux.
 
-
+# Linux Basic
 ## Super user (admin) : 
 
 To switch back to root user(admin) on AWS linux:  
@@ -591,3 +591,8 @@ Example:
   `systemctl status nginx`  
   `systemctl status apache2`  
   `systemctl status ssl` *(if using a separate SSL service)*
+
+
+
+
+
