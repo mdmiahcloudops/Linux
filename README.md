@@ -24,10 +24,10 @@ To switch back to root user(admin) on AWS linux:
 
 ## User and information: 
 
-To check the current user
-- `whoami`
-To create user
-- `useradd Anas or adduser Anas`
+- To check the current user
+`whoami`
+- To create user
+ `useradd Anas or adduser Anas`
 To give the user (Anas) the password (as root user)
 - `passwd Anas` 
 To rename user name:
