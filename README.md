@@ -357,20 +357,20 @@ To switch back to root user(admin) on AWS linux:
 
 ## To Copy, Cut, and Paste Files and Folders:
 
-To copy a file and paste it in the same directory:  
+- To copy a file and paste it in the same directory:  
 `cp sourceFile DestinationFile`  
 (Note: The `DestinationFile` will be newly created. If a file with the same name exists, it will ask to override.)  
 Example:  
 `cp file1 newFile`
 
-To copy a file to a directory:  
+- To copy a file to a directory:  
 `cp file1 dir1`
 
-To copy a file to somewhere far (use full path):  
+- To copy a file to somewhere far (use full path):  
 `cp file1 /home/ec2-user/dir1`  
 (Note: We are in the current directory, and transferring the file to `dir1` in another location, so full path is needed.)
 
-To copy everything from a folder to another:  
+- To copy everything from a folder to another:  
 `cp -r sourcefolder/* destinationFolder`  
 Example:  
 `cp -r /home/ec2-user/folder1/* destinationFolder`
