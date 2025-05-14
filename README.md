@@ -81,4 +81,93 @@ To switch back to root user(admin) on AWS linux:
 - To check who(user) is currently log in:  
   `who`
 
+## User group & permission: 
+- **To create group**:  
+  `groupadd DevOpsTeam`
+
+- **To check the group**:  
+  `getent group`  
+  `cat /etc/group`
+
+- **To find which group the user Anas belongs to**:  
+  `grep anas /etc/group`
+
+- **To add someone to a group**:  
+  `usermod -aG DevOpsTeam Anas` *(include the group then the user)*
+
+- **To remove someone from a group called DevOpsTeam**:  
+  `gpasswd -d Anas DevOpsTeam` *(include the user then the group)*
+
+- **To add multiple groups for a file**:  
+  `usermod -aG DevOpsTeam Anas` *(for the first group)*  
+  `setfacl -m g:qa:rwx Anas.txt` *(for 2nd group)*
+
+- **To check a specific group by name**:  
+  `getent group DevOpsTeam`
+
+- **To delete a group**:  
+  `groupdel DevOpsTeam`
+
+- **Check who belongs to the current group**:  
+  `getent group DevOpsTeam` *(include the group name: DevOpsTeam)*
+
+- **To check the group of a user**:  
+  `id alice`
+
+- **To check the file list and folder permission**:  
+  `ls -ld` *(show the permission, showing long detail, list information about the directory only, current folder)*  
+  `ls -all` *(show all file permissions and details)*  
+  `ls -ld file1.txt` *(finding a specific file permission)*  
+  `ls -ll` *(show non-hidden files and folders within current directory)*  
+  `ls -l filename.txt` *(show permission list)*  
+  `ll` *(works like `ls` but gives list of their permission and users' information as well)*
+
+- **To change the current owner of a file or folder**:  
+  `chown mike devOpsFile.txt`  
+  `chown -R username DirName` *(flag is used for recursive changes, applying the group change to all files and directories within a specified directory)*
+
+- **To allow a group (DevOpsTeam) to have all (RWX) permissions for a file only**:  
+  Step 1: Change the file ownership (group):  
+  `chown :DevOpsTeam DevOpsFile` *(include the group name then filename)*  
+  `chgrp -R groupName DirectoryName` *(flag is used for recursive changes, applying the group change to all files and directories within a specified directory)*  
+  Step 2: By default, the group should have read permission, so now to add write and execute:  
+  `chmod g+wx DevOpsFile` *(add the file name at the end)*  
+  *(Note: It has given the group full privilege)*
+
+- **Step 3: Login a user that is part of DevOpsTeam to see if it got the permission.**
+
+- **Allow only read and write permission for group for DevOpsFile**:  
+  `chmod g=rw DevOpsFile`
+
+- **Allow also write permission for group**:  
+  `chmod g+w DevOpsFile`
+
+- **Allow only read permission for group**:  
+  `chmod g=r DevOpsFile`
+
+- **Allow owner to only have read permission**:  
+  `chmod u=r DevOpsFile`
+
+- **Allow owner to have rwx permission**:  
+  `chmod u=rwx DevOpsFile`
+
+- **Allow others not to read anything**:  
+  `chmod o= DevOpsFile`
+
+- **Not to allow any permission for the group**:  
+  `chmod g= DevOpsFile` *(Note: We are not providing any value to `g`, so change why the group has no permission to read, write, or execute)*  
+  *(It will show 3 dashes (- - -), which means it got no permission to any of them (RWX))*
+
+- **Allow everyone rwx**:  
+  `chmod 777 DevOpsFile`
+
+- **Not allow RWX for everyone**:  
+  `chmod 000 DevOpsFile`
+
+- **Not allow anyone to delete the file except the owner**:  
+  `chmod +t fileName`
+
+- **To remove sticky bit**:  
+  `chmod -t fileName`
+
 
