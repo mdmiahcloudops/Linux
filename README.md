@@ -1,4 +1,4 @@
-## 🐧 Linux Beginer to Advanced (in one shot)
+## 🐧 Linux Commands (in one shot)
 
 Welcome to your first steps into the Linux world! This repository includes:
 
