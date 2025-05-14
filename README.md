@@ -296,3 +296,140 @@ To switch back to root user(admin) on AWS linux:
     `hostnamectl set-hostname pitt`
 
   
+## Handy Tools:
+
+  - To clear your screen:  
+    `clear`
+
+  - To check the history of Linux commands:  
+    `history`
+
+  - To interrupt the command/To get back to the command if you typed `cd` instead of `cd ~`:  
+    `Ctrl + C`
+
+  - To go back to previous state like `Ctrl + Z` on Nano:  
+    `Alt + E`
+
+## To Create, Read & Write Files:
+
+  - To create a file:  
+    `touch fileAnas.txt`
+
+  - To create a single file:  
+    `touch file1.txt`
+
+  - To create 10 files:  
+    `touch testfile{1..10}.txt`
+
+  - (Nano) To write on a file, use Nano, which is a text editor for Linux:  
+    `nano fileAnas.txt`  
+    After writing, press `CTRL + O` to save, then press `Enter`  
+    To get out of Nano, press `CTRL + X`
+
+  - To create a new file through Nano:  
+    `nano newfile.txt`
+
+  - To go back to previous state like `Ctrl + Z` on Nano:  
+    `Alt + E`
+
+  - To read files:  
+    `cat file1.txt`  
+    Example:  
+    `cat anasFile.txt`
+
+  - With the `cat` command, you can also write to a file:  
+    `cat >> newfile` (then add your text, it will create the new file called `newfile` and also add the text for the file once you press `Enter`)
+
+  - To go to the root folder:  
+    `/`
+
+  - To go to home:  
+    `cd ~`
+
+  - To create a hidden file:  
+    `touch .file1`  
+    *(Note: If we add a dot before the file name, Linux hides the file by default)*
+
+  - To check the hidden file:  
+    `ls -a` *(This will list all files, including hidden ones)*
+
+## To Copy, Cut, and Paste Files and Folders:
+
+To copy a file and paste it in the same directory:  
+`cp sourceFile DestinationFile`  
+(Note: The `DestinationFile` will be newly created. If a file with the same name exists, it will ask to override.)  
+Example:  
+`cp file1 newFile`
+
+To copy a file to a directory:  
+`cp file1 dir1`
+
+To copy a file to somewhere far (use full path):  
+`cp file1 /home/ec2-user/dir1`  
+(Note: We are in the current directory, and transferring the file to `dir1` in another location, so full path is needed.)
+
+To copy everything from a folder to another:  
+`cp -r sourcefolder/* destinationFolder`  
+Example:  
+`cp -r /home/ec2-user/folder1/* destinationFolder`
+
+## To map folder to another folder:
+
+To connect one folder to another using symlink:  
+`ln -s /home/ubuntu/anas /tmp`
+
+- To cut (move) a file:**
+
+`mv file1 newFolder`  
+(Note: The file and folder need to be in the same directory; otherwise, it will rename instead of cut.)
+
+- To cut (move) or relocate a folder:
+
+`mv folder everything`
+
+- To append text from output to a file:
+
+`ip addr >> file1`
+
+- To replace text from output to a file:
+
+`ip addr > file1`
+
+**Search and Findings:**
+
+To check if there is a file named `myfile.txt`:  
+`ls myfile.txt` *(from the current folder)*  
+`find /home/green/myDir -name myfile.txt` *(if you know the directory)*  
+`find . -name "myfile.txt"` *(from current folder)*  
+`find -name myfile.txt`  
+(This will show all the files with the same name from all directories. Note: This needs to be executed from the root directory.)
+
+To find a specific text like "hello world" from all files within the `/home` directory:  
+`grep -r "hello world" /home`  
+`grep -ri "hello world" /home` *(ignore case sensitivity)*
+
+To check which files have been modified in the last 2 days:  
+`find /tmp -mtime -2`
+
+To search for anything that starts with `a` and ends with `.txt`:  
+`find / -name a*.txt`
+
+To find a file that is larger than 100MB:  
+`find / -size +100M`
+
+To check the type of a file:  
+`file /etc/passwd`
+
+To find any username "ec2":  
+`grep -ri "ec2*" /etc/passwd`
+
+**To Replace Word or Text in a File:**
+
+To replace `ramim123` text with `***`:  
+`sed -i 's/ramim123/***/g' helloworld.txt`  
+(This will insert `***` globally in place of `ramim123` in `helloworld.txt`.)
+
+To display a mask as `**` on display:  
+`sed 's/ramim123/***/g' hello`
+
+    
