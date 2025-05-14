@@ -631,4 +631,9 @@ New password that I set is: `'S3cur@Passw0rd!'` ✨
 🎉 **Congrats, database has been installed and configured!** 🎊
 
 
+# Setting LAMP Server (AWS LINUX) 🐧💻
+
+### Linux Apache Mariadb PHP (LAMP) 🔧💻
+
+
 
