@@ -29,26 +29,26 @@ To check the current user
 To create user
 - `useradd Anas or adduser Anas`
 To give the user (Anas) the password (as root user)
- `passwd Anas` 
+- `passwd Anas` 
 To rename user name:
-`usermod -l mYnewUser oldAnasUser` (warning: do with caution and also if has running process it won't execute so we need to kill the process pkill -u oldAnasUser )
+- `usermod -l mYnewUser oldAnasUser` (warning: do with caution and also if has running process it won't execute so we need to kill the process pkill -u oldAnasUser )
 To check user id & group
-  `id Anas`
+-  `id Anas`
 To substitute user or become different user(operate as diff user):
- `su newUser`
+- `su newUser`
   Ex. su Anas
 To check all users or user list:
-`cat /etc/passwd`
-`getent passwd | cut -d: -f1` (it will only show the users)
+- `cat /etc/passwd`
+- `getent passwd | cut -d: -f1` (it will only show the users)
 Check specific user:
-`getent passswd Anas` (give the user name here)
+- `getent passswd Anas` (give the user name here)
 To delete a user: 
-`userdel Anas`
+- `userdel Anas`
 To lockout a user:
-`usermod -L Anas` (it makes the password invalid)
-`passwd -l Anas`  (It locks the account by specifically altering the password field)
+- `usermod -L Anas` (it makes the password invalid)
+- `passwd -l Anas`  (It locks the account by specifically altering the password field)
 To unlock a user:
-`usermod -U Anas`
+- `usermod -U Anas`
 Force the user to change the password
 `chage -d 0 Anas`
 To setup the expiration of user account
