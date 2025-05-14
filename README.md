@@ -655,7 +655,7 @@ sudo systemctl start mariadb
 sudo systemctl enable mariadb`
 
 
-Step 3: modify the config file of mysql
+Step 3: Modify the MySQL Configuration File
     Step 1: open the /etc/my.cnf
     `nano /etc/my.cnf`
     Step 2: add the following command inside my.cnf
@@ -663,21 +663,23 @@ Step 3: modify the config file of mysql
     socket=/var/lib/mysql/mysql.sock 
     [client] socket=/var/lib/mysql/mysql.sock`
     note: this configuration tells MySQL where to find the socket file for communication between the MySQL server and client.
-    Step 3: now test the apache web server
+
+Step 2: Test the Apache Web Server
     http://publicIP2instance/phpinfo.php
     Note: provide your public ip of your ec2 instance
     Get the public ip from ec2 instance add phpinfo.php
     Ex. http://18.207.221.98/phpinfo.php
-    Step 4: secure the mySQL
-      Step 1: type the following command
-      mysql_secure_installation 
-      Step 2: answer the following question:
-      Type N Not to switch to the Unix Socket Mode
-      Type Y to set a root password : in my case i put 123 as root password
-      Type Y to remove the anonymous user accounts.
-      Type Y to disable the remote root login.
-      Type Y to remove the test database.
-      Type Y to reload the privilege tables and save your changes.
+
+Step 3: Secure the MySQL
+    Step 1: type the following command
+    `mysql_secure_installation` 
+    Step 2: answer the following question:
+    `Type N Not to switch to the Unix Socket Mode
+    Type Y to set a root password : in my case i put 123 as root password
+    Type Y to remove the anonymous user accounts.
+    Type Y to disable the remote root login.
+    Type Y to remove the test database.
+    Type Y to reload the privilege tables and save your changes.`
 
 
 
