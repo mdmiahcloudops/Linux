@@ -377,7 +377,7 @@ Example:
 
 ## To map folder to another folder:
 
-To connect one folder to another using symlink:  
+- To connect one folder to another using symlink:  
 `ln -s /home/ubuntu/anas /tmp`
 
 - To cut (move) a file:**
@@ -399,39 +399,39 @@ To connect one folder to another using symlink:
 
 **Search and Findings:**
 
-To check if there is a file named `myfile.txt`:  
+- To check if there is a file named `myfile.txt`:  
 `ls myfile.txt` *(from the current folder)*  
 `find /home/green/myDir -name myfile.txt` *(if you know the directory)*  
 `find . -name "myfile.txt"` *(from current folder)*  
 `find -name myfile.txt`  
 (This will show all the files with the same name from all directories. Note: This needs to be executed from the root directory.)
 
-To find a specific text like "hello world" from all files within the `/home` directory:  
+- To find a specific text like "hello world" from all files within the `/home` directory:  
 `grep -r "hello world" /home`  
 `grep -ri "hello world" /home` *(ignore case sensitivity)*
 
-To check which files have been modified in the last 2 days:  
+- To check which files have been modified in the last 2 days:  
 `find /tmp -mtime -2`
 
-To search for anything that starts with `a` and ends with `.txt`:  
+- To search for anything that starts with `a` and ends with `.txt`:  
 `find / -name a*.txt`
 
-To find a file that is larger than 100MB:  
+- To find a file that is larger than 100MB:  
 `find / -size +100M`
 
-To check the type of a file:  
+- To check the type of a file:  
 `file /etc/passwd`
 
-To find any username "ec2":  
+- To find any username "ec2":  
 `grep -ri "ec2*" /etc/passwd`
 
 **To Replace Word or Text in a File:**
 
-To replace `ramim123` text with `***`:  
+- To replace `ramim123` text with `***`:  
 `sed -i 's/ramim123/***/g' helloworld.txt`  
 (This will insert `***` globally in place of `ramim123` in `helloworld.txt`.)
 
-To display a mask as `**` on display:  
+- To display a mask as `**` on display:  
 `sed 's/ramim123/***/g' hello`
 
     
