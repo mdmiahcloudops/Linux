@@ -174,7 +174,7 @@ To switch back to root user(admin) on AWS linux:
   `chmod -t fileName`
 
 
-- **Folder and navigation:**
+## Folder and navigation: 
 
   - To check folder in tree structure:  
     `tree`
