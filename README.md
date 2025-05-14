@@ -247,6 +247,13 @@ To switch back to root user(admin) on AWS linux:
   - To move to the next folder:  
     `cd */`  
     *(Note: This only works when the next folder has only one folder.)*
+    
+  - To go to the root folder:  
+    `/`
+    
+  - To go to home:  
+    `cd ~`
+
 
   - To check the current folder size:  
     `df -h`
@@ -340,11 +347,6 @@ To switch back to root user(admin) on AWS linux:
   - With the `cat` command, you can also write to a file:  
     `cat >> newfile` (then add your text, it will create the new file called `newfile` and also add the text for the file once you press `Enter`)
 
-  - To go to the root folder:  
-    `/`
-
-  - To go to home:  
-    `cd ~`
 
   - To create a hidden file:  
     `touch .file1`  
