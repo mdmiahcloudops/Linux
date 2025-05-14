@@ -645,8 +645,7 @@ New password that I set is: `'S3cur@Passw0rd!'` ✨
 
 ### Step 2: Add the Following Commands to the `lamp.sh` File ⚙️
     Step 1: Open the `lamp.sh` file and add the following commands:
-    ```bash
-    sudo dnf upgrade -y
+    ```sudo dnf upgrade -y
     sudo dnf install -y httpd wget php-fpm php-mysqli php-json php php-devel
     sudo dnf install -y mariadb105-server
     sudo systemctl start httpd
