@@ -631,55 +631,148 @@ New password that I set is: `'S3cur@Passw0rd!'` ✨
 🎉 **Congrats, database has been installed and configured!** 🎊
 
 
-# Setting LAMP Server (AWS LINUX) 🐧💻
+# Linux Apache MariaDB PHP (LAMP) Setup Guide 🚀
 
-### Linux Apache Mariadb PHP (LAMP) 🔧💻
+## To Install MySQL with LAMP Approach 🛠️
 
-- To Install mySQL with LAMP approach
-Step 1: create a bash script file called lamp.sh on temp directory and give execute permission
-`cd /tmp`
-`touch lamp.sh`
-`chmod u+x lamp.sh`
-Step 2: add the following command on the lamp.sh file
-`sudo dnf upgrade -y
-sudo dnf install -y httpd wget php-fpm php-mysqli php-json php php-devel
-sudo dnf install -y mariadb105-server
-sudo systemctl start httpd
-sudo systemctl enable httpd
-sudo usermod -a -G apache ec2-user
-sudo chown -R ec2-user:apache /var/www
-sudo chmod 2775 /var/www  && find /var/www -type d -exec sudo chmod 2775 {} \;
-find /var/www -type f -exec sudo chmod 0664 {} \;
-echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
-sudo systemctl start mariadb
-sudo systemctl enable mariadb`
+### Step 1: Create a Bash Script File 📝
+    Step 1: Create a bash script file called `lamp.sh` in the `/tmp` directory and give it execute permission:
+    ```bash
+    cd /tmp
+    touch lamp.sh
+    chmod u+x lamp.sh
+    ```
 
+### Step 2: Add the Following Commands to the `lamp.sh` File ⚙️
+    Step 1: Open the `lamp.sh` file and add the following commands:
+    ```bash
+    sudo dnf upgrade -y
+    sudo dnf install -y httpd wget php-fpm php-mysqli php-json php php-devel
+    sudo dnf install -y mariadb105-server
+    sudo systemctl start httpd
+    sudo systemctl enable httpd
+    sudo usermod -a -G apache ec2-user
+    sudo chown -R ec2-user:apache /var/www
+    sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;
+    find /var/www -type f -exec sudo chmod 0664 {} \;
+    echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
+    sudo systemctl start mariadb
+    sudo systemctl enable mariadb
+    ```
 
-Step 3: Modify the MySQL Configuration File
-    Step 1: open the /etc/my.cnf
-    `nano /etc/my.cnf`
-    Step 2: add the following command inside my.cnf
-    `[mysqld] 
-    socket=/var/lib/mysql/mysql.sock 
-    [client] socket=/var/lib/mysql/mysql.sock`
-    note: this configuration tells MySQL where to find the socket file for communication between the MySQL server and client.
+### Step 3: Modify the MySQL Configuration File 🔧
 
-Step 2: Test the Apache Web Server
+    Step 1: Open the `/etc/my.cnf` file:
+    ```bash
+    nano /etc/my.cnf
+    ```
+
+    Step 2: Add the following commands inside `my.cnf`:
+    ```ini
+    [mysqld]
+    socket=/var/lib/mysql/mysql.sock
+
+    [client]
+    socket=/var/lib/mysql/mysql.sock
+    ```
+    **Note:** This configuration tells MySQL where to find the socket file for communication between the MySQL server and client.
+
+### Step 4: Test the Apache Web Server 🌐
+    Visit the following URL (replace `publicIP2instance` with your actual public IP):
+    ```text
     http://publicIP2instance/phpinfo.php
-    Note: provide your public ip of your ec2 instance
-    Get the public ip from ec2 instance add phpinfo.php
-    Ex. http://18.207.221.98/phpinfo.php
+    ```
+    **Example:** `http://18.207.221.98/phpinfo.php`
+    
+    **Note:** You can find your public IP from the EC2 instance.
 
-Step 3: Secure the MySQL
-    Step 1: type the following command
-    `mysql_secure_installation` 
-    Step 2: answer the following question:
-    `Type N Not to switch to the Unix Socket Mode
-    Type Y to set a root password : in my case i put 123 as root password
-    Type Y to remove the anonymous user accounts.
-    Type Y to disable the remote root login.
-    Type Y to remove the test database.
-    Type Y to reload the privilege tables and save your changes.`
+### Step 5: Secure the MySQL Installation 🔒
+
+    Step 1: Run the following command:
+    ```bash
+    mysql_secure_installation
+    ```
+
+    Step 2: Answer the following questions:
+    - Type `N` to not switch to the Unix Socket Mode.
+    - Type `Y` to set a root password: in my case, I put `123` as the root password.
+    - Type `Y` to remove the anonymous user accounts.
+    - Type `Y` to disable the remote root login.
+    - Type `Y` to remove the test database.
+    - Type `Y` to reload the privilege tables and save your changes.
+
+### Step 6: Start and Login to MySQL (MariaDB) 🔑
+
+    Step 1: Stop the MySQL service:
+    ```bash
+    systemctl stop mariadb
+    ```
+
+    Step 2: Start the MySQL service:
+    ```bash
+    systemctl start mariadb
+    ```
+
+    Step 3: Verify if the service is running:
+    ```bash
+    systemctl status mariadb
+    ```
+
+    Step 4: Enable the service to start on boot:
+    ```bash
+    systemctl enable mariadb
+    ```
+
+    Step 5: Check the MariaDB/MySQL status:
+    ```bash
+    mysql -u root -p
+    ```
+    **Password:** `123`
+
+### Step 7: Create a Test Database 🗂️
+    ```bash
+    create database testdb;
+    show database testdb;
+    ```
+
+### Step 8: Install PHP and phpMyAdmin 🖥️
+
+    Step 1: Go to `/var/www/html` and create a bash file called `phpmyadmin.sh` (you can name it anything):
+    ```bash
+    nano phpmyadmin.sh
+    ```
+
+    Step 2: Give execute permission to the bash file:
+    ```bash
+    chmod u+x phpmyadmin.sh
+    ```
+
+    Step 3: Paste the following code in the `phpmyadmin.sh` file:
+    ```bash
+    sudo dnf install php-mbstring php-xml -y
+    sudo systemctl restart httpd
+    sudo systemctl restart php-fpm
+    wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz
+    mkdir phpMyAdmin && tar -xvzf phpMyAdmin-latest-all-languages.tar.gz -C phpMyAdmin --strip-components 1
+    rm phpMyAdmin-latest-all-languages.tar.gz
+    sudo systemctl start mariadb
+    ```
+
+    Step 4: Execute the bash script:
+    ```bash
+    ./phpmyadmin.sh
+    ```
+
+### Final Step: Access phpMyAdmin 🎉
+    Go to the following URL (replace with your public IP):
+    ```text
+    http://18.207.221.98/phpMyAdmin
+    ```
+
+    **Note:** The username is `root` and the password is `123`.
+
+    **Congrats, the database has been configured with LAMP! 🎉**
+
 
 
 
