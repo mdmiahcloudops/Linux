@@ -128,13 +128,16 @@ To switch back to root user(admin) on AWS linux:
   `chown -R username DirName` *(flag is used for recursive changes, applying the group change to all files and directories within a specified directory)*
 
 - To allow a group (DevOpsTeam) to have all (RWX) permissions for a file only:  
-      Step 1: Change the file ownership (group):  
-      `chown :DevOpsTeam DevOpsFile` *(include the group name then filename)*  
-      `chgrp -R groupName DirectoryName` *(flag is used for recursive changes, applying the group change to all files and directories within a specified directory)*  
-      Step 2: By default, the group should have read permission, so now to add write and execute:  
-      `chmod g+wx DevOpsFile` *(add the file name at the end)*  
-      *(Note: It has given the group full privilege)*
-      Step 3: Login a user that is part of DevOpsTeam to see if it got the permission.
+
+  Step 1: Change the file ownership (group):  
+  `chown :DevOpsTeam DevOpsFile` *(include the group name then filename)*  
+  `chgrp -R groupName DirectoryName` *(flag is used for recursive changes, applying the group change to all files and directories within a specified directory)*  
+
+  Step 2: By default, the group should have read permission, so now to add write and execute:  
+  `chmod g+wx DevOpsFile` *(add the file name at the end)*  
+  *(Note: It has given the group full privilege)*
+
+  Step 3: Login a user that is part of DevOpsTeam to see if it got the permission.
 
 - Allow only read and write permission for group for DevOpsFile:  
   `chmod g=rw DevOpsFile`
