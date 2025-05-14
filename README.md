@@ -174,7 +174,7 @@ To switch back to root user(admin) on AWS linux:
   `chmod -t fileName`
 
 
-## Folder and navigation: 
+## Folder and Navigation: 
 
   - To check folder in tree structure:  
     `tree`
@@ -252,7 +252,7 @@ To switch back to root user(admin) on AWS linux:
     `df -h`
 
 
-##Notifications:
+## Notifications:
 
   - To notify everyone:  
     `wall “hello everyone, please turn off your pc now, we will do work on server”`
@@ -260,7 +260,7 @@ To switch back to root user(admin) on AWS linux:
   - To display on green:  
     `echo “hello world”`
 
-##Software Installation:
+## Software Installation:
 
   - To download and install something:  
     `wget provideTheDownloadableURLhere`
@@ -280,7 +280,7 @@ To switch back to root user(admin) on AWS linux:
   - To activate firewall:  
     `systemctl start firewalld`
 
-##Machine Information:
+## Machine Information:
 
   - To check hostname/device name:  
     `hostname`
