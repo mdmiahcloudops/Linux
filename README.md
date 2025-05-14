@@ -251,4 +251,48 @@ To switch back to root user(admin) on AWS linux:
   - To check the current folder size:  
     `df -h`
 
+
+##Notifications:
+
+  - To notify everyone:  
+    `wall “hello everyone, please turn off your pc now, we will do work on server”`
+
+  - To display on green:  
+    `echo “hello world”`
+
+##Software Installation:
+
+  - To download and install something:  
+    `wget provideTheDownloadableURLhere`
+
+  - Check recent package or software installation history:  
+    `dnf history`
+
+  - To check if a package called tree is installed or not:  
+    `rpm -q tree`
+
+  - To check if nano is installed:  
+    `which nano`
+
+  - To install firewall:  
+    `yum install firewalld`
+
+  - To activate firewall:  
+    `systemctl start firewalld`
+
+##Machine Information:
+
+  - To check hostname/device name:  
+    `hostname`
+
+  - To check IP address:  
+    `ip addr`  
+    `ohai ipaddress`
+
+  - To check hostname, OS:  
+    `uname -a`
+
+  - To change the hostname/computer name (root user):  
+    `hostnamectl set-hostname pitt`
+
   
