@@ -397,7 +397,7 @@ Example:
 
 `ip addr > file1`
 
-**Search and Findings:**
+## Search and Findings:
 
 - To check if there is a file named `myfile.txt`:  
 `ls myfile.txt` *(from the current folder)*  
@@ -425,7 +425,7 @@ Example:
 - To find any username "ec2":  
 `grep -ri "ec2*" /etc/passwd`
 
-**To Replace Word or Text in a File:**
+## To Replace Word or Text in a File:
 
 - To replace `ramim123` text with `***`:  
 `sed -i 's/ramim123/***/g' helloworld.txt`  
