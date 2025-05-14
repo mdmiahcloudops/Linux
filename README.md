@@ -434,4 +434,160 @@ Example:
 - To display a mask as `**` on display:  
 `sed 's/ramim123/***/g' hello`
 
-    
+## Automation in Linux
+
+- To install cronjob:  
+  `dnf install rsync -y`
+
+- To enable cronie:  
+  `systemctl enable crond`
+
+- To check cronie:  
+  `which crond`
+
+- To start the cron service:  
+  `systemctl start crond`
+
+- To check the cron status:  
+  `systemctl status crond`
+
+- To copy data1 from `/` and save it to `/tmp/dataRecovery` directory every 1 min:
+
+  - Step 1: Type the following syntax  
+    `crontab -e`
+
+  - Step 2: Enter the following command in the cronie editor  
+    `* * * * * cp /data1 /tmp/dataRecovery`  
+    *Note: it usually takes a minute to activate it*
+
+  - Step 3: Verify the crontab  
+    `crontab -l`
+
+- To run every hour:  
+  `0 * * * * cp /data1 /tmp/dataRecovery`
+
+- To run every day only:  
+  `0 0 * * * cp /data1 /tmp/dataRecovery`
+
+- To run the first day of every month only:  
+  `0 0 1 * * cp /data1 /tmp/dataRecovery`  
+  *Note: 1 here represents the first day*
+
+---
+
+## OS and Machine Details
+
+- To check OS:  
+  `cat /etc/os-release`
+
+- Will show you the properties for the system:  
+  `hostnamectl`
+
+- To check IP address:  
+  `ip addr`  
+  `hostname -i`
+
+- To check the Linux version:  
+  `uname -a`  
+  `cat /proc/version`
+
+- To upgrade to the latest patches or update Linux:  
+  `yum upgrade`
+
+- To shut down the server:  
+  `shutdown -r now`  
+  *Note: be careful when doing it, only doable during off-hours*
+
+- To logout from server:  
+  `exit`  
+  `Ctrl + D`
+
+- Check memory information:  
+  `free -h` *(it shows memory information)*  
+  `ohai memory/total`
+
+- Check disk space information:  
+  `df -h` *(it shows disk space information)*
+
+- To check the actual storage given to the OS:  
+  `lsblk`
+
+- To check CPU information:  
+  `cat /proc/cpuinfo`
+
+- To check CPU summary:  
+  `lscpu`
+
+- To check how long since we are using the system:  
+  `uptime`
+
+## Process and Application
+
+- To check processes:  
+  `who`
+
+- To check running processes that are active:  
+  `ps -aux`  
+  *Note: A process is an instance of an application or program executed by the OS.  
+  Processes can be part of a larger application.*
+
+- Example:  
+  - **Application**: Firefox (the web browser)  
+    - **Process 1**: The main Firefox browser window  
+    - **Process 2**: A separate process running a specific tab  
+    - **Process 3**: A background process that checks for updates  
+
+- To check the top 3 processes consuming the most CPU:  
+  `ps aux --sort=-%cpu | head -n 3`
+
+- To check the top 3 processes consuming the most memory:  
+  `ps -aux --sort=-%mem | head -n 3`
+
+- To find which package a process belongs to (using PID 123 as example):  
+  `ps -p 123 -o comm=`
+
+- To kill a running process (using PID 123 as example):  
+  `kill 123`
+
+- To check how many applications or packages are installed:  
+  `dnf list installed | wc -l`
+
+- To check memory information:  
+  `free -h`
+
+- To check disk space information:  
+  `df -h`  
+  - `devtmpfs`: Temporary device files storage like USB, keyboard, etc.  
+  - `tmpfs`: Memory-based temporary storage for `/dev/shm`, `/run`, etc.  
+  - `/dev/mapper/...-root`: Logical volume for the root filesystem.  
+  - `/dev/sda1`: Partition for boot files (kernel, bootloader).
+
+- To check folder size or storage usage:  
+  `du -sh /AnasFolder/folder`
+
+- To check logs information:  
+  `journalctl`
+
+- For real-time log monitoring:  
+  `journalctl -f`
+
+- To check only boot logs:  
+  `journalctl -b`
+
+
+---
+
+## Networking & Web Server
+
+- To enable port 80 (HTTP) for web server:  
+  `firewall-cmd --zone=public --add-port=80/tcp --permanent`
+
+- To check all running services:  
+  `systemctl list-units --type=service`
+
+- To check if HTTPS service is running or not:  
+  *(You may use one of the following commands depending on the service name)*  
+  `systemctl status httpd`  
+  `systemctl status nginx`  
+  `systemctl status apache2`  
+  `systemctl status ssl` *(if using a separate SSL service)*
