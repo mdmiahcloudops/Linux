@@ -21,3 +21,5 @@ To switch back to root user(admin) on AWS linux:
 - `su root` (Alma/ aws with root password)
 
 > 💡 **Note:** All three commands provide root-level access and privileges, but `sudo -i` is best for fully getting the root’s environment and `su root` has to provide the root password.
+
+## User group & permission: 
