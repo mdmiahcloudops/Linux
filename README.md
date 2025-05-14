@@ -635,5 +635,49 @@ New password that I set is: `'S3cur@Passw0rd!'` ✨
 
 ### Linux Apache Mariadb PHP (LAMP) 🔧💻
 
+- To Install mySQL with LAMP approach
+Step 1: create a bash script file called lamp.sh on temp directory and give execute permission
+`cd /tmp`
+`touch lamp.sh`
+`chmod u+x lamp.sh`
+Step 2: add the following command on the lamp.sh file
+`sudo dnf upgrade -y
+sudo dnf install -y httpd wget php-fpm php-mysqli php-json php php-devel
+sudo dnf install -y mariadb105-server
+sudo systemctl start httpd
+sudo systemctl enable httpd
+sudo usermod -a -G apache ec2-user
+sudo chown -R ec2-user:apache /var/www
+sudo chmod 2775 /var/www  && find /var/www -type d -exec sudo chmod 2775 {} \;
+find /var/www -type f -exec sudo chmod 0664 {} \;
+echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
+sudo systemctl start mariadb
+sudo systemctl enable mariadb`
+
+
+Step 3: modify the config file of mysql
+    Step 1: open the /etc/my.cnf
+    `nano /etc/my.cnf`
+    Step 2: add the following command inside my.cnf
+    `[mysqld] 
+    socket=/var/lib/mysql/mysql.sock 
+    [client] socket=/var/lib/mysql/mysql.sock`
+    note: this configuration tells MySQL where to find the socket file for communication between the MySQL server and client.
+    Step 3: now test the apache web server
+    http://publicIP2instance/phpinfo.php
+    Note: provide your public ip of your ec2 instance
+    Get the public ip from ec2 instance add phpinfo.php
+    Ex. http://18.207.221.98/phpinfo.php
+    Step 4: secure the mySQL
+      Step 1: type the following command
+      mysql_secure_installation 
+      Step 2: answer the following question:
+      Type N Not to switch to the Unix Socket Mode
+      Type Y to set a root password : in my case i put 123 as root password
+      Type Y to remove the anonymous user accounts.
+      Type Y to disable the remote root login.
+      Type Y to remove the test database.
+      Type Y to reload the privilege tables and save your changes.
+
 
 
